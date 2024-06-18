@@ -70,7 +70,6 @@ def test():
                 pred = F.fold(preds.reshape(1,-1,patch_num), kernel_size=opt.patchSize, stride=opt.patchSize, output_size=(h,w))
             else: 
                 pred = net.forward(img)  
-            pred = net.forward(img)
             pred = pred[:,:,:size[0],:size[1]]
             gt_mask = gt_mask[:,:,:size[0],:size[1]]
             eval_mIoU.update((pred>opt.threshold).cpu(), gt_mask)
